@@ -1,0 +1,4 @@
+suites:
+    acme_suite:
+        namespace: Just\MetaData
+        psr4_prefix: Just\MetaData

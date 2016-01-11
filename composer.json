@@ -1,0 +1,23 @@
+{
+    "name": "just/metadata",
+    "description": "A package that simplifies the implementation of common metadata",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cees van Egmond",
+            "email": "cees.vanegmond@wearejust.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpspec/phpspec": "^2.4"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": {
+            "Just\\MetaData\\": "src"
+        }
+    }
+}
