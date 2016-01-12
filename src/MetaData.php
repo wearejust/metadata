@@ -20,15 +20,29 @@ class MetaData
     private $images;
 
     /**
-     * @param string $title
-     * @param string $description
-     * @param array $images
+     * @var string
      */
-    public function __construct($title, $description, $images = [])
+    private $baseUrl;
+
+    /**
+     * @var string
+     */
+    private $currentUrl;
+
+    /**
+     * @param string|null $title
+     * @param string|null $description
+     * @param array $images
+     * @param string $baseUrl
+     * @param string $currentUrl
+     */
+    public function __construct($title, $description, $images = [], $baseUrl, $currentUrl)
     {
         $this->title = $title;
         $this->description = $description;
         $this->images = $images;
+        $this->baseUrl = $baseUrl;
+        $this->currentUrl = $currentUrl;
     }
 
     /**
@@ -56,15 +70,18 @@ class MetaData
     }
 
     /**
-     * @param MetaDataInterface $interface
-     * @return static
+     * @return string
      */
-    public static function fromInterface(MetaDataInterface $interface)
+    public function getBaseUrl()
     {
-        return new static(
-            $interface->getMetaDataTitle(),
-            $interface->getMetaDataDescription(),
-            $interface->getMetaDataImages()
-        );
+        return $this->baseUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrentUrl()
+    {
+        return $this->currentUrl;
     }
 }
