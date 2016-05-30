@@ -18,6 +18,12 @@ app.php
     ...
     Just\MetaData\Laravel\MetaDataServiceProvider::class,
 ]
+
+'aliases' => [
+    ...
+    ...
+    'MetaData'  => Just\MetaData\Laravel\Facades\MetaData::class,
+]
 ```
 
 You can publish the (default) config by fire the following command
@@ -37,7 +43,10 @@ Route::get('/', function (Just\MetaData\MetaDataWrapper $manager) {
     //OR
     $object = new SometingWithFollowingInterface(MetaDataInterface);
     $manager->fromInterface($object);
-    
+
+    // You may also use the Facade
+    $object = MetaData::fromInterface($object);
+
     return view('welcome');
 });
 ```
