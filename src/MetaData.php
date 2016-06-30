@@ -17,7 +17,7 @@ class MetaData
     /**
      * @var array
      */
-    private $images;
+    private $customContent;
 
     /**
      * @var string
@@ -32,15 +32,15 @@ class MetaData
     /**
      * @param string|null $title
      * @param string|null $description
-     * @param array $images
-     * @param string $baseUrl
-     * @param string $currentUrl
+     * @param array       $customContent
+     * @param string      $baseUrl
+     * @param string      $currentUrl
      */
-    public function __construct($title, $description, $images = [], $baseUrl, $currentUrl)
+    public function __construct($title, $description, $customContent = [], $baseUrl, $currentUrl)
     {
         $this->title = $title;
         $this->description = $description;
-        $this->images = $images;
+        $this->customContent = $customContent;
         $this->baseUrl = $baseUrl;
         $this->currentUrl = $currentUrl;
     }
@@ -64,9 +64,9 @@ class MetaData
     /**
      * @return array
      */
-    public function getImages()
+    public function getCustomContent()
     {
-        return $this->images;
+        return $this->customContent;
     }
 
     /**
