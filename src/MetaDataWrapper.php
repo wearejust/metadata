@@ -28,21 +28,28 @@ class MetaDataWrapper
      */
     public function fromInterface(MetaDataInterface $interface)
     {
-        return $this->fromData($interface->getMetaDataTitle(), $interface->getMetaDataDescription(), $interface->getMetaDataImages());
+        return $this->fromData($interface->getMetaDataTitle(), $interface->getMetaDataDescription(), $interface->getMetaDataCustomContent());
     }
 
     /**
      * @param string $title
      * @param string $description
-     * @param array $images
+     * @param array  $customMetaData
+     *
      * @return $this
      */
-    public function fromData($title, $description, array $images = [])
+    public function fromData($title, $description, array $customMetaData = [])
     {
+        foreach($customMetaData as $md) {
+            if (! $md instanceof CustomMetaData) {
+                throw new \InvalidArgumentException('Custom data must be an CustomMetaData object');
+            }
+        }
+        
         $this->metaData = new MetaData(
             $this->formatTitle($title),
             $this->formatDescription($description),
-            $images,
+            $customMetaData,
             $this->defaults->getBaseUrl(),
             $this->defaults->getCurrentUrl()
         );

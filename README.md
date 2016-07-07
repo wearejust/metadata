@@ -67,7 +67,7 @@ Route::get('/', function (Just\MetaData\MetaDataWrapper $manager) {
     /**
      * @return array
      */
-    public function getImages();
+    public function getCustomContent();
 
     /**
      * @return string
