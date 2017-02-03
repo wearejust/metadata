@@ -66,7 +66,7 @@ class MetaDataWrapper
     {
         if ($name = $this->defaults->getSiteName()) {
             if ($title) {
-                $title .= ' - ';
+                $title .= ' — ';
             }
 
             $title .= $this->defaults->getSiteName();
