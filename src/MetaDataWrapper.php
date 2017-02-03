@@ -62,7 +62,13 @@ class MetaDataWrapper
      */
     public function getMetaData()
     {
-        return $this->metaData ?: (new MetaData($this->defaults->getSiteName(), $this->defaults->getDefaultDescription(), [], $this->defaults->getBaseUrl(), $this->defaults->getCurrentUrl()));
+        return $this->metaData ?: (new MetaData(
+            $this->defaults->getSiteName() . ' — ' . $this->defaults->getPayoff(),
+            $this->defaults->getDefaultDescription(),
+            [],
+            $this->defaults->getBaseUrl(),
+            $this->defaults->getCurrentUrl())
+        );
     }
 
     /**
@@ -73,7 +79,7 @@ class MetaDataWrapper
     {
         if ($name = $this->defaults->getSiteName()) {
             if ($title) {
-                $title .= ' - ';
+                $title .= ' — ';
             }
 
             $title .= $this->defaults->getSiteName();

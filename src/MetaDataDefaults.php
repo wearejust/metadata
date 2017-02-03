@@ -25,17 +25,24 @@ class MetaDataDefaults
     private $fullUrl;
 
     /**
+     * @var string
+     */
+    private $payoff;
+
+    /**
      * @param string $siteName
+     * @param string $payoff
      * @param string $defaultDescription
      * @param string $baseUrl
      * @param string $fullUrl
      */
-    public function __construct($siteName, $defaultDescription, $baseUrl, $fullUrl)
+    public function __construct($siteName, $payoff, $defaultDescription, $baseUrl, $fullUrl)
     {
         $this->siteName = $siteName;
         $this->defaultDescription = $defaultDescription;
         $this->baseUrl = $baseUrl;
         $this->fullUrl = $fullUrl;
+        $this->payoff = $payoff;
     }
 
     /**
@@ -68,5 +75,13 @@ class MetaDataDefaults
     public function getCurrentUrl()
     {
         return $this->fullUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPayoff()
+    {
+        return $this->payoff;
     }
 }
