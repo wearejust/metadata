@@ -36,6 +36,7 @@ class MetaDataServiceProvider extends ServiceProvider
             return new MetaDataWrapper(
                 new MetaDataDefaults(
                     config('metadata.sitename', ''),
+                    config('metadata.payoff', ''),
                     config('metadata.description', ''),
                     app('request')->root(),
                     app('request')->fullUrl()
