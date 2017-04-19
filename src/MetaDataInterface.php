@@ -15,7 +15,7 @@ interface MetaDataInterface
     public function getMetaDataDescription();
 
     /**
-     * @return array
+     * @return array|CustomMetaData[]
      */
-    public function getMetaDataImages();
+    public function getMetaDataCustomContent();
 }
