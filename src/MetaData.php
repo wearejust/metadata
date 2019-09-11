@@ -58,7 +58,7 @@ class MetaData
      */
     public function getDescription()
     {
-        return preg_replace('/\s+/', ' ', str_limit(strip_tags($this->description), 250));
+        return preg_replace('/\s+/', ' ', str_limit(strip_tags($this->description), 158));
     }
 
     /**
