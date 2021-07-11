@@ -42,9 +42,9 @@ class MetaDataWrapper
         $this->metaData = new MetaData(
             $this->formatTitle($title),
             $this->formatDescription($description),
-            $images,
             $this->defaults->getBaseUrl(),
-            $this->defaults->getCurrentUrl()
+            $this->defaults->getCurrentUrl(),
+            $images
         );
 
         return $this;
@@ -58,9 +58,9 @@ class MetaDataWrapper
         return $this->metaData ?: (new MetaData(
             $this->defaults->getSiteName() . ' — ' . $this->defaults->getPayoff(),
             $this->defaults->getDefaultDescription(),
-            [],
             $this->defaults->getBaseUrl(),
-            $this->defaults->getCurrentUrl())
+            $this->defaults->getCurrentUrl(),
+            [])
         );
     }
 

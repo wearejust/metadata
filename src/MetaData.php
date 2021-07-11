@@ -2,6 +2,8 @@
 
 namespace Just\MetaData;
 
+use Illuminate\Support\Str;
+
 class MetaData
 {
     /**
@@ -36,7 +38,7 @@ class MetaData
      * @param string $baseUrl
      * @param string $currentUrl
      */
-    public function __construct($title, $description, $images = [], $baseUrl, $currentUrl)
+    public function __construct($title, $description, $baseUrl, $currentUrl, $images = [])
     {
         $this->title = $title;
         $this->description = $description;
@@ -58,7 +60,7 @@ class MetaData
      */
     public function getDescription()
     {
-        return preg_replace('/\s+/', ' ', str_limit(strip_tags($this->description), 158));
+        return preg_replace('/\s+/', ' ', Str::limit(strip_tags($this->description), 158));
     }
 
     /**
