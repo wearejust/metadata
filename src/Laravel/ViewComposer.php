@@ -3,6 +3,7 @@
 namespace Just\MetaData\Laravel;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Arr;
 use Just\MetaData\Exceptions\InstanceMissmatchException;
 use Just\MetaData\MetaData;
 use Just\MetaData\MetaDataManager;
@@ -29,9 +30,9 @@ class ViewComposer
      */
     public function compose(View $view)
     {
-        $data = array_get($view->getData(), 'metaData', $this->wrapper->getMetaData());
+        $data = Arr::get($view->getData(), 'metaData', $this->wrapper->getMetaData());
 
-        if (! $data instanceof MetaData) {
+        if (!$data instanceof MetaData) {
             throw new InstanceMissmatchException(sprintf('Data [%s] is not an instance of [%s]', gettype($data), MetaData::class));
         }
 
